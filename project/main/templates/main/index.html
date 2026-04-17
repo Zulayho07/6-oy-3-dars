@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body>
+<h1><a href="{% url 'home' %}">Yangiliklar</a></h1>
+
+
+{%  for category in categories %}
+    <a href="{% url 'news_by_category' category.id %}">{{ category.name }}</a>&nbsp&nbsp
+{%  endfor %}
+
+<h1>Kitoblar ro'yxati</h1>
+
+<ul>
+    {% for new in news %}
+    <li>Name: <a href="{% url 'news_detail' new.id %}">{{ new.name}}</a></li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
